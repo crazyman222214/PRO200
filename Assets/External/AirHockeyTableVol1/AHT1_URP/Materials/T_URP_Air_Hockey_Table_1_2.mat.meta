@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: da5cbaea80fcdad4ea0c1b8abde37cbe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 312849
+  packageName: Air Hockey Table Vol. 1
+  packageVersion: 1.0.0
+  assetPath: Assets/AirHockeyTableVol1/AHT1_URP/Materials/T_URP_Air_Hockey_Table_1_2.mat
+  uploadId: 799254
