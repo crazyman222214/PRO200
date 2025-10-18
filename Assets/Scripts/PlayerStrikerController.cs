@@ -16,21 +16,21 @@ public class PlayerStrikerController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
-            
+           
             var ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hit;
 
             Debug.Log(ray.origin);
 
             Debug.DrawRay(ray.origin, ray.direction * 500, Color.red, 10.0f);
-            if (Physics.Raycast(ray, out hit, 500, ~0))
+
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, 500, ~0))
             {
-                transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                transform.position = hit.point;
             }
             else
             {
                 Debug.Log("AOOGA");
-
             }
         }
     }
