@@ -56,44 +56,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Air_Hockey_Table_URP_1_6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -908633003473845209}
+      addedObject: {fileID: 800096980177243428}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 800096980177243428}
+      addedObject: {fileID: 1469518645506873424}
   m_SourcePrefab: {fileID: 100100000, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
 --- !u!1 &6597709693566971867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e1448636f5c6bb54d9e1595929aed827, type: 3}
   m_PrefabInstance: {fileID: 6291159052340220554}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &-908633003473845209
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597709693566971867}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 738121045751039324, guid: 0661ea1bbb0c14b4a9fe695e9464df26, type: 3}
 --- !u!54 &800096980177243428
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,7 +103,28 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1469518645506873424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6597709693566971867}
+  m_Material: {fileID: 13400000, guid: 25900fb43555ab14e874ea81851174aa, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1673279, y: 0.876246, z: 2.1591864}
+  m_Center: {x: 0.014563441, y: 0.438123, z: 0.0041167736}
