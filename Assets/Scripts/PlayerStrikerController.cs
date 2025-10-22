@@ -24,7 +24,7 @@ public class PlayerStrikerController : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hit, 500, tableLayerMask))
             {
                 Rigidbody rb = GetComponent<Rigidbody>();
-                Vector3 lerpPos = Vector3.Lerp(transform.position, hit.point, 0.4f);
+                Vector3 lerpPos = Vector3.Lerp(transform.position, hit.point, 0.05f);
 
                 rb.MovePosition(lerpPos);
             }
