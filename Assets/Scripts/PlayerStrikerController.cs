@@ -5,7 +5,8 @@ public class PlayerStrikerController : MonoBehaviour
 {
 
     public LayerMask tableLayerMask = -1;
-    
+    public MenuController menuController;
+
     void Start()
     {
         
@@ -38,5 +39,18 @@ public class PlayerStrikerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
        
+    }
+
+    private void EndGame()
+    {
+        //after this, we can make it so that the player striker disappears and the game ends
+        //make sure to call this when the player loses and re-enable the player on game start
+        menuController.LoseGame();
+        //gameObject.SetActive(false);
+    }
+
+    private void WinGame()
+    {
+        menuController.WinGame();
     }
 }
