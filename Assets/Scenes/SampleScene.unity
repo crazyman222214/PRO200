@@ -241,9 +241,10 @@ GameObject:
   - component: {fileID: 255840413}
   - component: {fileID: 255840412}
   - component: {fileID: 255840414}
+  - component: {fileID: 255840415}
   m_Layer: 0
   m_Name: GOAL
-  m_TagString: Untagged
+  m_TagString: PlayerGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,8 +268,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.1, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.081454426, y: 0.1, z: 0.5}
+  m_Center: {x: 0.015727207, y: 0, z: 0}
 --- !u!4 &255840413
 Transform:
   m_ObjectHideFlags: 0
@@ -296,6 +297,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2cfb506c71830439f43bbfd98491dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  scoreControllerInst: {fileID: 626990060}
+  rb: {fileID: 2085075330}
+--- !u!54 &255840415
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255840411}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +879,7 @@ GameObject:
   - component: {fileID: 626990053}
   - component: {fileID: 626990052}
   - component: {fileID: 626990058}
+  - component: {fileID: 626990060}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -982,6 +1013,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuController
   endPanel: {fileID: 1038928447}
+  playerStrikerController: {fileID: 753480920}
+--- !u!114 &626990060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626990051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046698d2b1b7ba343a18122756a93bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreController
+  playerStrikerController: {fileID: 753480920}
+  AIScoreText: {fileID: 2075418299}
+  PlayerScoreText: {fileID: 332970073}
 --- !u!1 &753480919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 99008706619726786, guid: ee562e6e97afbfd4880e939f83f76218, type: 3}
@@ -1318,6 +1365,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914555517}
   m_CullTransparentMesh: 1
+--- !u!1 &973424691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973424694}
+  - component: {fileID: 973424693}
+  - component: {fileID: 973424692}
+  - component: {fileID: 973424695}
+  m_Layer: 0
+  m_Name: AIGOAL
+  m_TagString: AiGoal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &973424692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973424691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2cfb506c71830439f43bbfd98491dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  scoreControllerInst: {fileID: 626990060}
+  rb: {fileID: 2085075330}
+--- !u!65 &973424693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973424691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0613729, y: 0.1, z: 0.5}
+  m_Center: {x: -0.0056864507, y: 0, z: 0}
+--- !u!4 &973424694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973424691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.152, y: 0.921, z: 0.001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &973424695
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973424691}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!1 &1004303785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046698d2b1b7ba343a18122756a93bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerStrikerController: {fileID: 0}
+  AIScoreText: {fileID: 0}
+  PlayerScoreText: {fileID: 0}
 --- !u!114 &1004303787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2302,7 +2448,7 @@ GameObject:
   - component: {fileID: 2075418300}
   - component: {fileID: 2075418299}
   m_Layer: 5
-  m_Name: PlayerScoreText (1)
+  m_Name: AIScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,7 +2604,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!64 &2085075331
 MeshCollider:
@@ -2627,5 +2773,6 @@ SceneRoots:
   - {fileID: 1786256388}
   - {fileID: 1150375421}
   - {fileID: 255840413}
+  - {fileID: 973424694}
   - {fileID: 1004303788}
   - {fileID: 7326141360558475233}
