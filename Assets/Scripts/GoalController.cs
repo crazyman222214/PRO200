@@ -1,8 +1,12 @@
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+
+    public event Action OnPuckScored;
     void Start()
     {
         
@@ -11,7 +15,7 @@ public class GoalController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,6 +23,12 @@ public class GoalController : MonoBehaviour
         if (other.CompareTag("Puck"))
         {
             Debug.Log("Goal Scored!");
+
+
+                OnPuckScored?.Invoke();
+
+            
+
         }
     }
 }
