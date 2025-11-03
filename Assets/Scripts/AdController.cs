@@ -35,8 +35,8 @@ public class AdController : MonoBehaviour
 
     public void playAd()
     {
-        if (UnityEngine.Random.value < 0.2f)
-        {
+       // if (UnityEngine.Random.value < 0.2f)
+       // {
         
         print("play ad");
         if (adsToPlay.Count > 0)
@@ -57,7 +57,7 @@ public class AdController : MonoBehaviour
         }
 
         adPlayer.Play();
-    }
+   // }
     }
 
     
