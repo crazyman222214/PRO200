@@ -24,9 +24,9 @@ public class ScoreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (aiScore != 10)
+        if (aiScore != 1)
         {
-            if (playerScore == 10)
+            if (playerScore == 1)
             {
                 Debug.Log("Player Wins!");
                 playerStrikerController.WinGame();
