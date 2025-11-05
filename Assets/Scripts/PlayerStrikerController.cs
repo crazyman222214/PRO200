@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerStrikerController : MonoBehaviour
 {
 
     public LayerMask tableLayerMask = -1;
-    
+    public MenuController menuController;
+
     void Start()
     {
         
@@ -30,7 +32,7 @@ public class PlayerStrikerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("AOOGA");
+                //Debug.Log("AOOGA");
             }
         }
     }
@@ -38,5 +40,19 @@ public class PlayerStrikerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
        
+    }
+
+    public void EndGame()
+    {
+        //after this, we can make it so that the player striker disappears and the game ends
+        //make sure to call this when the player loses and re-enable the player on game start
+        menuController.LoseGame();
+        gameObject.SetActive(false);
+    }
+
+    public void WinGame()
+    {
+        menuController.WinGame();
+        gameObject.SetActive(false);
     }
 }
