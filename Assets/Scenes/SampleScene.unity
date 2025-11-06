@@ -262,7 +262,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 243691261}
-  m_Father: {fileID: 1038928448}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1347,7 +1347,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 844762896}
-  - {fileID: 1038928448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1367,7 +1366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281993d7f8f5f7d47a4d64abbd77cc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuController
-  endPanel: {fileID: 1038928447}
   endButton: {fileID: 689947583}
   replayButton: {fileID: 220225545}
   playerStrikerController: {fileID: 753480920}
@@ -1384,6 +1382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreController
   playerStrikerController: {fileID: 753480920}
+  menuController: {fileID: 0}
+  goalController: {fileID: 0}
   AIScoreText: {fileID: 2075418299}
   PlayerScoreText: {fileID: 332970073}
 --- !u!1 &689947583
@@ -1418,7 +1418,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 844685043}
-  m_Father: {fileID: 1038928448}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2072,6 +2072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerStrikerController: {fileID: 0}
+  menuController: {fileID: 0}
+  goalController: {fileID: 0}
   AIScoreText: {fileID: 0}
   PlayerScoreText: {fileID: 0}
 --- !u!114 &1004303787
@@ -2086,9 +2088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085f94e882213f748abc65517fdced0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startingTime: 420
+  startingTime: 20
   currentTime: 0
   timerText: {fileID: 1945956038}
+  scoreController: {fileID: 0}
 --- !u!4 &1004303788
 Transform:
   m_ObjectHideFlags: 0
@@ -2129,7 +2132,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127103796}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bbc5cbde56d259e4fa0a31d35a7e9473, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: ba82186bd6a7c3240891550a215eae91, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 330585545}
@@ -2419,7 +2422,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196308897}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 2da61222678ba334e988cefaed06c942, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b275c0fd3ee532144b73b5a9199b9a94, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 330585545}
@@ -3415,8 +3418,9 @@ SceneRoots:
   - {fileID: 1786256388}
   - {fileID: 1150375421}
   - {fileID: 255840413}
-  - {fileID: 973424694}
   - {fileID: 1004303788}
   - {fileID: 7326141360558475233}
   - {fileID: 969436984}
   - {fileID: 398089480}
+  - {fileID: 220225546}
+  - {fileID: 689947584}

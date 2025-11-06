@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject endPanel;
+    //public GameObject endPanel;
     public GameObject endButton;
     public GameObject replayButton;
     public PlayerStrikerController playerStrikerController;
@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        endPanel.SetActive(false);
+        //endPanel.SetActive(false);
         replayButton.SetActive(false);
         endButton.SetActive(false);
     }
@@ -23,23 +23,39 @@ public class MenuController : MonoBehaviour
         
     }
 
+
+    public void EndGame(bool playerWin, bool tie)
+    {
+        Debug.Log("Game Over!");
+       
+        replayButton.SetActive(true);
+        endButton.SetActive(true);
+       
+        string message = tie ? "You Tied!" : playerWin ? "You Win!" : "You Lose!";
+        Debug.Log(message);
+        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
+
+
+    }
+
     public void LoseGame()
     {
         Debug.Log("You Lose!");
-        endPanel.SetActive(true);
+        //endPanel.SetActive(true);
         replayButton.SetActive(true);
         endButton.SetActive(true);
-        endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Lose!";
+        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Lose!";
     }
 
     public void WinGame()
     {
         Debug.Log("You Win!");
-        endPanel.SetActive(true);
+        //endPanel.SetActive(true);
         replayButton.SetActive(true);
         endButton.SetActive(true);
-        endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Win!";
+        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Win!";
     }
+
 
     public void OnClickReplay()
     {

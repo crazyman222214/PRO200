@@ -9,9 +9,11 @@ public class TimerController : MonoBehaviour
     public int currentTime;
 
     public TMP_Text timerText;
+    public ScoreController scoreController;
 
     void Start()
     {
+        scoreController = FindAnyObjectByType<ScoreController>();
         currentTime = startingTime;
         StartCoroutine(UpdateTime());
     }
@@ -19,9 +21,19 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentTime <= 0)
+        {
+            
+            TimerEnd();
+        }
     }
 
+    public void TimerEnd()
+    {
+        Debug.Log("END");
+        scoreController.Endgame();
+        StopCoroutine(UpdateTime());
+    }
 
     private IEnumerator UpdateTime()
     {
@@ -34,5 +46,7 @@ public class TimerController : MonoBehaviour
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             yield return new WaitForSeconds(1);
         }
+
+        
     }
 }

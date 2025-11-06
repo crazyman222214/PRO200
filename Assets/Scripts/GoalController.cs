@@ -1,12 +1,16 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using System.Collections;
 
 public class GoalController : MonoBehaviour
 {
-    
+    public ScoreController scoreControllerInst;
+    public static bool WasGoal { get; private set; }
+    public Rigidbody rb;
 
     public event Action OnPuckScored;
+
     void Start()
     {
         WasGoal = false;
@@ -23,11 +27,9 @@ public class GoalController : MonoBehaviour
         if (!WasGoal && other.tag == "Puck")
         {
             Debug.Log("Goal Scored!");
-
-
-                OnPuckScored?.Invoke();
-
-            
+            WasGoal = true;
+            OnPuckScored?.Invoke();
+            StartCoroutine(ResetPuck());
 
         }
     }
