@@ -13,7 +13,7 @@ public class TimerController : MonoBehaviour
 
     void Start()
     {
-        scoreController = FindAnyObjectByType<ScoreController>();
+        
         currentTime = startingTime;
         StartCoroutine(UpdateTime());
     }

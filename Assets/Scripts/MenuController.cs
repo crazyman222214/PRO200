@@ -4,17 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    //public GameObject endPanel;
-    public GameObject endButton;
-    public GameObject replayButton;
+    public GameObject endPanel;
     public PlayerStrikerController playerStrikerController;
+    public TMP_Text endMessageText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //endPanel.SetActive(false);
-        replayButton.SetActive(false);
-        endButton.SetActive(false);
+        endPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,32 +25,11 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Game Over!");
        
-        replayButton.SetActive(true);
-        endButton.SetActive(true);
+        endPanel.SetActive(true);
        
         string message = tie ? "You Tied!" : playerWin ? "You Win!" : "You Lose!";
         Debug.Log(message);
-        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
-
-
-    }
-
-    public void LoseGame()
-    {
-        Debug.Log("You Lose!");
-        //endPanel.SetActive(true);
-        replayButton.SetActive(true);
-        endButton.SetActive(true);
-        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Lose!";
-    }
-
-    public void WinGame()
-    {
-        Debug.Log("You Win!");
-        //endPanel.SetActive(true);
-        replayButton.SetActive(true);
-        endButton.SetActive(true);
-        //endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Win!";
+        endMessageText.text = message;
     }
 
 
@@ -64,6 +40,10 @@ public class MenuController : MonoBehaviour
 
     public void OnClickEnd()
     {
-        Application.Quit(); // end game
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

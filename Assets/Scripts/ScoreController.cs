@@ -22,7 +22,6 @@ public class ScoreController : MonoBehaviour
         menuController = FindAnyObjectByType<MenuController>();
         goalController = FindAnyObjectByType<GoalController>();
 
-        //goalController.OnPuckScored += () => { };
     }
 
     // Update is called once per frame
@@ -33,19 +32,24 @@ public class ScoreController : MonoBehaviour
 
     public void Endgame()
     {
+        Debug.Log($"END! Player: {playerScore}, AI: {aiScore}");
         menuController.EndGame(playerScore > aiScore, playerScore == aiScore);
     }
 
     public void Inc(ScoreType whoScore)
     {
-        
+        Debug.Log($"Player: {playerScore}, AI: {aiScore}");
+
         if (whoScore == ScoreType.AIScore)
         {
-            AIScoreText.text = (++aiScore).ToString();
+            aiScore++;
+            AIScoreText.text = (aiScore < 10) ? $"0{aiScore}" : (aiScore).ToString();
         }
         else
         {
-            PlayerScoreText.text = (++playerScore).ToString();
+            playerScore++;
+            PlayerScoreText.text = (aiScore < 10) ? $"0{playerScore}" : (playerScore).ToString();
+
         }
     }
 }

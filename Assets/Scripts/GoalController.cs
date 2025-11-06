@@ -31,6 +31,11 @@ public class GoalController : MonoBehaviour
             OnPuckScored?.Invoke();
             StartCoroutine(ResetPuck());
 
+            ScoreController.ScoreType scoreType = (name.Equals("AIGOAL")) ? ScoreController.ScoreType.PlayerScore 
+                : ScoreController.ScoreType.AIScore;
+
+            scoreControllerInst.Inc(scoreType);
+
         }
     }
     private IEnumerator ResetPuck()

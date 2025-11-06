@@ -30,29 +30,6 @@ public class PlayerStrikerController : MonoBehaviour
 
                 rb.MovePosition(lerpPos);
             }
-            else
-            {
-                //Debug.Log("AOOGA");
-            }
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-       
-    }
-
-    public void EndGame()
-    {
-        //after this, we can make it so that the player striker disappears and the game ends
-        //make sure to call this when the player loses and re-enable the player on game start
-        menuController.LoseGame();
-        gameObject.SetActive(false);
-    }
-
-    public void WinGame()
-    {
-        menuController.WinGame();
-        gameObject.SetActive(false);
     }
 }
