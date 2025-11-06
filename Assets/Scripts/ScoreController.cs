@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreController : MonoBehaviour
@@ -11,6 +13,31 @@ public class ScoreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (aiScore != 1)
+        {
+            if (playerScore == 1)
+            {
+                Debug.Log("Player Wins!");
+                playerStrikerController.WinGame();
+            }
+        }
+        else
+        {
+            Debug.Log("AI Wins!");
+            playerStrikerController.EndGame();
+            
+        }
+    }
+
+    public void Inc(ScoreType whoScore)
+    {
+        if (whoScore == ScoreType.AIScore)
+        {
+            AIScoreText.text = (++aiScore).ToString();
+        }
+        else
+        {
+            PlayerScoreText.text = (++playerScore).ToString();
+        }
     }
 }
