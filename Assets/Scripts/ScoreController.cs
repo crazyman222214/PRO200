@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
-
-    public PlayerStrikerController playerStrikerController;
-    public enum ScoreType
-    {
-        AIScore,
-        PlayerScore
-    }
-
-    public TextMeshProUGUI AIScoreText, PlayerScoreText;
-    private int aiScore, playerScore;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         

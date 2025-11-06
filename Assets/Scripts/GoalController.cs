@@ -1,14 +1,12 @@
-using System.Collections;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
+    
 
-    public ScoreController scoreControllerInst;
-    public static bool WasGoal { get; private set; }
-    public Rigidbody rb;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public event Action OnPuckScored;
     void Start()
     {
         WasGoal = false;
@@ -17,27 +15,20 @@ public class GoalController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!WasGoal && other.tag == "Puck")
         {
-            if (gameObject.tag == ("AiGoal"))
-            {
-                scoreControllerInst.Inc(ScoreController.ScoreType.PlayerScore);
-                WasGoal = true;
-                StartCoroutine(ResetPuck());
-                Debug.Log("Goal Scored!");
-            }
-            else if (gameObject.tag == ("PlayerGoal"))
-            {
-                scoreControllerInst.Inc(ScoreController.ScoreType.AIScore);
-                WasGoal = true;
-                StartCoroutine(ResetPuck());
-                Debug.Log("Goal Scored!");
-            }
+            Debug.Log("Goal Scored!");
+
+
+                OnPuckScored?.Invoke();
+
+            
+
         }
     }
     private IEnumerator ResetPuck()
