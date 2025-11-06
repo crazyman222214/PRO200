@@ -1,12 +1,17 @@
 using System.Collections;
+using Unity.MLAgents.Sensors;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class GoalController : MonoBehaviour
 {
 
     public ScoreController scoreControllerInst;
     public static bool WasGoal { get; private set; }
-    public Rigidbody rb;
+    public Rigidbody puckRB;
+
+    public static ScoreController.ScoreType scoreType;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,33 +25,28 @@ public class GoalController : MonoBehaviour
 
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!WasGoal && other.tag == "Puck")
         {
-            if (gameObject.tag == ("AiGoal"))
-            {
-                scoreControllerInst.Inc(ScoreController.ScoreType.PlayerScore);
-                WasGoal = true;
-                StartCoroutine(ResetPuck());
-                Debug.Log("Goal Scored!");
-            }
-            else if (gameObject.tag == ("PlayerGoal"))
-            {
-                scoreControllerInst.Inc(ScoreController.ScoreType.AIScore);
-                WasGoal = true;
-                StartCoroutine(ResetPuck());
-                Debug.Log("Goal Scored!");
-            }
+            scoreType = (gameObject.tag == "AiGoal") ? ScoreController.ScoreType.PlayerScore : ScoreController.ScoreType.AIScore;
+            scoreControllerInst.Inc(scoreType);
+            WasGoal = true;
+            StartCoroutine(ResetPuck());
+            Debug.Log("Goal Scored!");
+
         }
     }
     private IEnumerator ResetPuck()
     {
         yield return new WaitForSeconds(2);
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        puckRB.linearVelocity = Vector3.zero;
+        puckRB.angularVelocity = Vector3.zero;
         //this postion is specific to the current table setup where its in favor of the player
-        rb.transform.position = new Vector3(-0.400000006f, 0.8762459f, 0f);
+
+
+        puckRB.transform.position = new Vector3(-0.400000006f, 0.8762459f, 0f);
         Physics.SyncTransforms();
         WasGoal = false;
     }

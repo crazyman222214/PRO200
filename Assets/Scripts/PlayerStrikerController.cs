@@ -38,7 +38,7 @@ public class PlayerStrikerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       
+       //TODO: add sound effect to play & random chance to play ad
     }
 
     public void EndGame()
