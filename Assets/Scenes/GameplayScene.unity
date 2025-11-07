@@ -1464,8 +1464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuController
   endPanel: {fileID: 1925420710}
-  endButton: {fileID: 689947583}
-  replayButton: {fileID: 220225545}
   playerStrikerController: {fileID: 753480920}
   endMessageText: {fileID: 1874552990}
 --- !u!114 &626990060
@@ -2187,7 +2185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085f94e882213f748abc65517fdced0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startingTime: 20
+  startingTime: 40
   currentTime: 0
   timerText: {fileID: 1945956038}
   scoreController: {fileID: 626990060}
@@ -2708,6 +2706,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3516777104255464853, guid: cc6a93aecf4f4d64b8e074411bef92e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2085075331}
+    - targetCorrespondingSourceObject: {fileID: 3516777104255464853, guid: cc6a93aecf4f4d64b8e074411bef92e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2085075333}
   m_SourcePrefab: {fileID: 100100000, guid: cc6a93aecf4f4d64b8e074411bef92e3, type: 3}
 --- !u!1 &1786256384
 GameObject:
@@ -3584,6 +3585,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7425316768716292594, guid: 48bce996021a6cc49875880f1c652588, type: 3}
+--- !u!114 &2085075333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085075328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26010746d3171240b9d90a66fc756e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuckController
 --- !u!1001 &7326141360558475233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3643,8 +3656,116 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 897552844219082073, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7326141360558475236}
+    - targetCorrespondingSourceObject: {fileID: 897552844219082073, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7326141360558475235}
+    - targetCorrespondingSourceObject: {fileID: 897552844219082073, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7326141360558475238}
+    - targetCorrespondingSourceObject: {fileID: 897552844219082073, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7326141360558475239}
   m_SourcePrefab: {fileID: 100100000, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+--- !u!1 &7326141360558475234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 897552844219082073, guid: 9586c33f32d81c64e88051617b272dd3, type: 3}
+  m_PrefabInstance: {fileID: 7326141360558475233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7326141360558475235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326141360558475234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76524e9f1c62311429307dbe023a511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIStrikerController
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 10
+  puckController: {fileID: 2085075333}
+  speed: 10
+  selfGoal: {fileID: 138133530}
+  enemyGoal: {fileID: 255840414}
+--- !u!114 &7326141360558475236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326141360558475234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.Policies.BehaviorParameters
+  m_BrainParameters:
+    VectorObservationSize: 16
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 5022602860645237092, guid: e9675310a6c75bb488d5bad27c0b16ab, type: 3}
+  m_InferenceDevice: 0
+  m_BehaviorType: 2
+  m_BehaviorName: AirHockey
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &7326141360558475238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326141360558475234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
+--- !u!54 &7326141360558475239
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326141360558475234}
+  serializedVersion: 5
+  m_Mass: 10
+  m_LinearDamping: 0
+  m_AngularDamping: 0.01
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 1
 --- !u!1001 &7486527147525128259
 PrefabInstance:
   m_ObjectHideFlags: 0

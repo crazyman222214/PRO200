@@ -9,10 +9,14 @@ public class GoalController : MonoBehaviour
     public static bool WasGoal { get; private set; }
     public Rigidbody rb;
 
+    public static ScoreController.ScoreType scoreType;
+
     public event Action OnPuckScored;
 
     void Start()
     {
+        scoreType = (name.Equals("AIGOAL")) ? ScoreController.ScoreType.PlayerScore 
+                : ScoreController.ScoreType.AIScore;
         WasGoal = false;
     }
 
